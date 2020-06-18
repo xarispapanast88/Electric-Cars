@@ -55,6 +55,10 @@ echo "<input type ='number' name ='places' value=$places>";
 echo "<br>";
 echo "<br>";
 
+echo "<input type ='hidden' name ='id' value=$id>";
+
+
+
 echo "<input type ='submit'  value='Update'>";
 
 echo "</form>"; 

@@ -49,7 +49,7 @@ echo "</th>";
 
 echo "<th>";
 
-echo "Serives";
+echo "Services";
 
 echo "</th>";
 
