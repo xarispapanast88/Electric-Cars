@@ -144,6 +144,18 @@ echo "</tr>";
    echo "</form>";
    echo "</td>";
 
+echo "<td>";
+   
+     $station = $row["id"];
+
+   echo "<form action = 'delete_station.php' method = 'post'>";
+   
+   echo "<input type='hidden' name='st_id'  value='$station'>";
+   echo "<input type='submit'  value='Delete'>";
+   echo "</form>";
+   echo "</td>";
+
+
       echo "</tr>";
 
   }
