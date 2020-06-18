@@ -146,21 +146,10 @@ echo "</tr>";
    
      $station = $row["id"];
 
-   echo "<form action = 'update_station.php' method = 'post'>";
+   echo "<form action = 'view_station_info.php' method = 'post'>";
    
    echo "<input type='hidden' name='st_id'  value='$station'>";
-   echo "<input type='submit'  value='Update'>";
-   echo "</form>";
-   echo "</td>";
-
-echo "<td>";
-   
-     $station = $row["id"];
-
-   echo "<form action = 'delete_station.php' method = 'post'>";
-   
-   echo "<input type='hidden' name='st_id'  value='$station'>";
-   echo "<input type='submit'  value='Delete'>";
+   echo "<input type='submit'  value='View More'>";
    echo "</form>";
    echo "</td>";
 
