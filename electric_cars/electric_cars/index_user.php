@@ -1,5 +1,0 @@
-<html>
-
-Welcome user!
-
-</html>
