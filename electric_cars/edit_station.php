@@ -75,7 +75,10 @@ echo "</tr>";
 
   // output data of each row
   while($row = $result->fetch_assoc()) {
+	  
+	  
     echo "<tr>";
+	
 	echo "<td>";
 	
 	echo $row['id'];
@@ -130,6 +133,17 @@ echo "</tr>";
 	
    echo "</td>";
    
+   echo "<td>";
+   
+     $station = $row["id"];
+
+   echo "<form action = 'update_station.php' method = 'post'>";
+   
+   echo "<input type='hidden' name='st_id'  value='$station'>";
+   echo "<input type='submit'  value='Update'>";
+   echo "</form>";
+   echo "</td>";
+
       echo "</tr>";
 
   }
