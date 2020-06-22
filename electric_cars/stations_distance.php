@@ -1,5 +1,10 @@
 <html>
 
+<?php
+
+session_start();
+?>
+
 <script>
 
   if (navigator.geolocation) {
@@ -10,11 +15,26 @@
 
 
 function showPosition(position) {
-  document.getElementById("x").innerHTML = "Your Current Position is:<br>"+"Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
+  document.getElementById("latitude").value = position.coords.latitude;
+    document.getElementById("longitude").value = position.coords.longitude;
 }
 </script>
+Your current location is:
+<br>
+<br>
+<form action="view_nearest.php" method="post">
+Latitude:
+<input type="text" name="latitude"  id="latitude" >
+<br>
+<br>
+Longitude:
+<input type="text" name="longitude" id="longitude" >
 
-<div id="x"> </div>
+<br>
+<br>
+<button type="submit">View Nearest Stations</button>
+</form>
+
+
 
 </html>

@@ -4,6 +4,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "ecars";
+session_start();
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -18,8 +19,11 @@ $password = $_POST["password"];
 
 $sql = "SELECT * FROM user WHERE username='$username' AND password = '$password'";
 $result = $conn->query($sql);
+$row =$result->fetch_assoc();
 
 if ($result->num_rows > 0) {
+	
+	$_SESSION["id"] = $row["id"];
  
  header("Location: index_user.php");
   
