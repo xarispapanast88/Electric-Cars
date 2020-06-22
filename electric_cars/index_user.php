@@ -1,59 +1,49 @@
 <html>
-<body>
 
-<h3>Nearest Stations</h3>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
 
-
-
-<script>
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById("googleMap"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8
-  });
-  
- 
-}
-
-function makeRequest(url, callback) {
-var request;
-if (window.XMLHttpRequest) {
-request = new XMLHttpRequest(); // IE7+, Firefox, Chrome, Opera, Safari
-} else {
-request = new ActiveXObject("Microsoft.XMLHTTP"); // IE6, IE5
-}
-request.onreadystatechange = function() {
-if (request.readyState == 4 && request.status == 200) {
-callback(request);
-}
-}
-request.open("GET", url, true);
-request.send();
-}
-
-function displayLocation(location) {
+Welcome user!
 
 
-var position = new google.maps.LatLng(parseFloat(location.lat), parseFloat(location.lng));
-var marker = new google.maps.Marker({
-map: map,
-position: position,
-title: location.id
-});
+<table border="1">
 
-google.maps.event.addListener(marker, 'click', function() {
-infowindow.open(map,marker);
-});
-
-}
-
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWkuD7mq1PUQLJEMixvA57GGdvB7XkOJs&callback=myMap"></script>
-
-<div id="googleMap" style="width:100%;height:400px;"></div>
+<tr>
+<td>
+<a href="show_map.php">View Map</a>
+</td>
+<td>
+<a href="stations_distance.php">Suggest Stations by distance</a></td>
 
 
-</body>
+
+
+<td>
+<a href="stations_rating.php">Suggest by rating</a>
+</td>
+<td>
+<a href="checkin.php">Checkin/Checkout</a>
+</td>
+
+
+
+
+<td>
+<a href="view_history.php">View History</a>
+</td>
+
+<td>
+<a href="logout_user.php">Logout User</a>
+</td>
+
+</tr>
+
+</table>
+
 </html>

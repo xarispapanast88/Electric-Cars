@@ -1,24 +1,34 @@
 <?php
 
-$server     = 'localhost';
-$username   = 'root';
-$password   = '';
-$database   = 'ecars';
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ecars";
 
-$dsn        = "mysql:host=$server;dbname=$database";
-
-try {
-
-$db = new PDO($dsn, $username, $password);
-$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-
-$sth = $db->query("SELECT * FROM station");
-$locations = $sth->fetchAll();
-
-echo json_encode( $locations );
-
-} catch (Exception $e) {
-echo $e->getMessage();
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
 }
+
+$sql = "SELECT lat,lng FROM station";
+$result = $conn->query($sql);
+
+$final = array();
+while($row = $result->fetch_assoc()){
+    // temporary array to create single category
+
+    $tmp = array();
+    array_push($tmp, $row["lat"]);
+    array_push($tmp, $row["lng"]);
+	
+	array_push($final,$tmp);
+ 
+
+}
+
+
+json_encode($final);
 
 ?>
