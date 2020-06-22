@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2020 at 09:26 AM
+-- Generation Time: Jun 22, 2020 at 09:44 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.31
 
@@ -20,6 +20,38 @@ SET time_zone = "+00:00";
 --
 -- Database: `ecars`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `distance`
+--
+
+CREATE TABLE `distance` (
+  `user_id` int(11) NOT NULL,
+  `station_id` int(11) NOT NULL,
+  `dist` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reserved`
+--
+
+CREATE TABLE `reserved` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `station_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `reserved`
+--
+
+INSERT INTO `reserved` (`id`, `user_id`, `station_id`) VALUES
+(1, 1, 1),
+(2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -43,10 +75,8 @@ CREATE TABLE `station` (
 --
 
 INSERT INTO `station` (`id`, `name`, `lat`, `lng`, `services`, `places`, `reserved`, `rating`) VALUES
-(1, 'First Station', 38.244438, 21.734440, 'Free Parking for 24h\r\n', 50, 0, 0),
-(2, 'Second Station', 38.244492, 21.734480, 'Supermarket', 30, 0, 0),
-(3, 'Third Station', 38.244511, 21.734520, 'Cafe', 18, 0, 0),
-(4, 'Fourth', 38.244560, 21.734570, 'Best \r\n', 11, 0, 0);
+(1, 'New First Station', 38.256569, 21.743589, 'Free Parking for 48h', 58, 0, 0),
+(3, 'Third Station', 38.195271, 21.701441, 'Cafe', 18, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -75,6 +105,18 @@ INSERT INTO `user` (`id`, `username`, `password`, `email`, `points`) VALUES
 --
 
 --
+-- Indexes for table `distance`
+--
+ALTER TABLE `distance`
+  ADD PRIMARY KEY (`user_id`,`station_id`);
+
+--
+-- Indexes for table `reserved`
+--
+ALTER TABLE `reserved`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `station`
 --
 ALTER TABLE `station`
@@ -89,6 +131,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `reserved`
+--
+ALTER TABLE `reserved`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `station`
